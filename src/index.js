@@ -21,7 +21,7 @@ class Board extends React.Component {
         );
     }
 
-    render() {
+    /* render() {
         return (
             <div>
                 <div className="board-row">
@@ -39,6 +39,21 @@ class Board extends React.Component {
                     {this.renderSquare(7)}
                     {this.renderSquare(8)}
                 </div>
+            </div>
+        );
+    } */
+    render () {
+        const squares = []
+        for (let rowNum = 0; rowNum < 3; rowNum++) {
+            const rowSquares = []
+            for (let colNum = 0; colNum < 3; colNum++) {
+                rowSquares.push(this.renderSquare(rowNum * 3 + colNum));
+            }
+            squares.push(<div className="board row">{rowSquares}</div>)
+        }
+        return(
+            <div> 
+            {squares}
             </div>
         );
     }
